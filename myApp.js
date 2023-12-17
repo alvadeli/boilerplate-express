@@ -2,6 +2,7 @@ let express = require('express');
 let app = express();
 let bodyParser = require("body-parser");
 
+const PORT = 3000; // You can use any available port
 //app.get("/", (req, res) => {
 //  res.send("Hello Express");
 //})
@@ -66,5 +67,9 @@ app.post("/name", (req, res) => {
   let lastname = req.body.last; 
   res.json({"name": firstname + " " + lastname});
 })
+
+app.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`);
+});
 
 module.exports = app;
